@@ -55,7 +55,14 @@ html,body,.main{
     border-color:#7c7c7c;
     color:#7c7c7c;
 }
-.input-group input{
+.input-title input{
+    width: 75%;
+    height:.76rem;
+    line-height:.76rem;
+    font-size:.3rem;
+    float: right;
+}
+.input-project span{
     width: 75%;
     height:.76rem;
     line-height:.76rem;
