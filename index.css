@@ -57,8 +57,8 @@ html,body,.main{
 }
 .input-title input{
     width: 75%;
-    height:.76rem;
-    line-height:.76rem;
+    height: 0.28rem;
+    padding: 0.24rem 0;
     font-size:.3rem;
     float: right;
 }
@@ -92,18 +92,18 @@ html,body,.main{
     line-height:.76rem;
 }
 
-.icon-right{
-    position: absolute;
-    top:.25rem;
-    right:0;
-    z-index: 9;
-    display: inline-block;
-    float: right;
-    width: .24rem;
-    height:.24rem;
-    background: url('icon-right.png') no-repeat;
-    background-size:100% 100%;
-}
+/*.icon-right{*/
+    /*position: absolute;*/
+    /*top:.25rem;*/
+    /*right:0;*/
+    /*z-index: 9;*/
+    /*display: inline-block;*/
+    /*float: right;*/
+    /*width: .24rem;*/
+    /*height:.24rem;*/
+    /*background: url('icon-right.png') no-repeat;*/
+    /*background-size:100% 100%;*/
+/*}*/
 .content-bottom{
     margin-top:0.24rem;
 }
