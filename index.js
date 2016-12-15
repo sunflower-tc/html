@@ -17,3 +17,15 @@ function resetRem() {
     });
 }
 resetRem();
+
+function btnClick(e){
+    $(e).addClass('btn-active').siblings().removeClass('btn-active');
+    if($(e).html() == '不需要发票'){
+        $('.input-group').hide();
+    }else {
+        $('.input-group').show();
+    }
+
+}
+
+

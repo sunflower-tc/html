@@ -17,11 +17,12 @@
     <div class="content">
         <div class="content-top">
             <div class="btn-group">
-                 <div>
-                     <button class="btn btn-left">不需要发票</button><button class="btn btn-right">增值税普通发票(电子)</button>
-                 </div>
                 <div>
-                    <button class="btn btn-down">增值税普通发票(纸质)</button>
+                    <button class="btn btn-left" onclick="btnClick(this);">不需要发票</button><button class="btn btn-right" onclick="btnClick(this);">增值税普通发票(电子)</button>
+                    <button class="btn btn-down btn-active" onclick="btnClick(this);">增值税普通发票(纸质)</button>
+                </div>
+                <div>
+                    <!--<button class="btn btn-down" onClick="btnClick(this);">增值税普通发票(纸质)</button>-->
                 </div>
             </div>
             <form action="" class="input-group">
@@ -37,16 +38,18 @@
             </form>
         </div>
         <div class="content-bottom">
-                <div>
-                    <button class="submit-btn">提交</button>
-                </div>
-               <ul class="message-info">
-                   <li>房费发票票面金额是您实际支付房费金额</li>
-                   <li>下单后，发票可在离店时直接向前台索取,记的出示微信订单。</li>
-               </ul>
+            <div>
+                <button class="submit-btn">提交</button>
+            </div>
+            <ul class="message-info">
+                <li>房费发票票面金额是您实际支付房费金额</li>
+                <li>下单后，发票可在离店时直接向前台索取,记的出示微信订单。</li>
+            </ul>
         </div>
     </div>
 </div>
 </body>
+
+<script charset="utf-8" type="text/javascript" src="jquery-3.1.1.min.js"></script>
 <script charset="utf-8" type="text/javascript" src="index.js"></script>
 </html>
