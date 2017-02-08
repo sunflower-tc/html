@@ -2,50 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-	 <link rel="stylesheet" href="mob-share.css"/>
+    <title>微信JS-SDK Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<!--MOB SHARE BEGIN-->
-<div class="-mob-share-ui-button -mob-share-open">分享</div>
-<div class="-mob-share-ui" style="display: none">
-    <ul class="-mob-share-list">
-        <li class="-mob-share-qzone"><p>QQ空间</p></li>
-        <li class="-mob-share-qq"><p>QQ好友</p></li>
-        <li class="-mob-share-weixin"><p>微信</p></li>
-
-    </ul>
-    <div class="-mob-share-close">取消</div>
-</div>
-<div class="-mob-share-ui-bg"></div>
-<script id="-mob-share" src="mob-share.js?appkey=1b1b75ba73cc3"></script>
+<h3 id="menu-scan">微信扫一扫</h3>
+<span class="desc">调起微信扫一扫接口</span>
+<button class="btn btn_primary" id="scanQRCode0">scanQRCode(微信处理结果)</button>
+<button class="btn btn_primary" id="scanQRCode1">scanQRCode(直接返回结果)</button>
+<h3 id="menu-share">分享接口</h3>
+<span class="desc">获取“分享到朋友圈”按钮点击状态及自定义分享内容接口</span>
+<button class="btn btn_primary" id="onMenuShareTimeline">onMenuShareTimeline</button>
+<span class="desc">获取“分享给朋友”按钮点击状态及自定义分享内容接口</span>
+<button class="btn btn_primary" id="onMenuShareAppMessage">onMenuShareAppMessage</button>
+<span class="desc">获取“分享到QQ”按钮点击状态及自定义分享内容接口</span>
+<button class="btn btn_primary" id="onMenuShareQQ">onMenuShareQQ</button>
+<span class="desc">获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口</span>
+<button class="btn btn_primary" id="onMenuShareWeibo">onMenuShareWeibo</button>
+<span class="desc">获取“分享到QZone”按钮点击状态及自定义分享内容接口</span>
+<button class="btn btn_primary" id="onMenuShareQZone">onMenuShareQZone</button>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/demo.js"> </script>
 <!--MOB SHARE END-->
 <script>
-    mobShare.config( {
-
-        debug: true, // 开启调试，将在浏览器的控制台输出调试信息
-
-        appkey: '1b1b75ba73cc3', // appkey
-
-        params: {
-            url: 'http://web.callcloud.cn/#/user-reg?loginType=2', // 分享链接
-            title: '呼叫云', // 分享标题
-            description: '带领伙伴共同致富吧！赶紧邀请伙伴来呼叫云工作：伙伴每赚一笔钱，你也会有一笔小收入哦！呼叫云平台给你的奖励金额高达伙伴收入金额的1%哦！此活动截止到2017年年底！', // 分享内容
-        },
-
-        /**
-         * 分享时触发的回调函数
-         * 分享是否成功，目前第三方平台并没有相关接口，因此无法知道分享结果
-         * 所以此函数只会提供分享时的相关信息
-         *
-         * @param {String} plat 平台名称
-         * @param {Object} params 实际分享的参数 { url: 链接, title: 标题, description: 内容, pic: 图片连接 }
-         */
-        callback: function( plat, params ) {
-        }
-
-    } );
-
+    wx.config({
+        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: 'wx159f0dbc19a9d3a4', // 必填，公众号的唯一标识
+        timestamp: 1486538500, // 必填，生成签名的时间戳
+        nonceStr: 'rlauWtLXQVLLmePd', // 必填，生成签名的随机串
+        signature: 'c13cf58c08d17d7f404d191aace83e5f1d311bd2',// 必填，签名，见附录1
+        jsApiList: [
+          'onMenuShareTimeline',
+          'onMenuShareAppMessage',
+          'onMenuShareQQ',
+          'onMenuShareWeibo',
+          'onMenuShareQZone',
+          'scanQRCode',
+        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });
 </script>
 <!--MOB SHARE END-->
 </body>
