@@ -1,48 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>微信JS-SDK Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <title>微信JS-SDK Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-<h3 id="menu-scan">微信扫一扫</h3>
-<span class="desc">调起微信扫一扫接口</span>
-<button class="btn btn_primary" id="scanQRCode0">scanQRCode(微信处理结果)</button>
-<button class="btn btn_primary" id="scanQRCode1">scanQRCode(直接返回结果)</button>
-<h3 id="menu-share">分享接口</h3>
-<span class="desc">获取“分享到朋友圈”按钮点击状态及自定义分享内容接口</span>
-<button class="btn btn_primary" id="onMenuShareTimeline">onMenuShareTimeline</button>
-<span class="desc">获取“分享给朋友”按钮点击状态及自定义分享内容接口</span>
-<button class="btn btn_primary" id="onMenuShareAppMessage">onMenuShareAppMessage</button>
-<span class="desc">获取“分享到QQ”按钮点击状态及自定义分享内容接口</span>
-<button class="btn btn_primary" id="onMenuShareQQ">onMenuShareQQ</button>
-<span class="desc">获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口</span>
-<button class="btn btn_primary" id="onMenuShareWeibo">onMenuShareWeibo</button>
-<span class="desc">获取“分享到QZone”按钮点击状态及自定义分享内容接口</span>
-<button class="btn btn_primary" id="onMenuShareQZone">onMenuShareQZone</button>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<body ontouchstart="">
+<div class="wxapi_container">
+    <div class="wxapi_index_container">
+      <ul class="label_box lbox_close wxapi_index_list">
+        <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-basic">基础接口</a></li>
+        <li class="label_item wxapi_index_item"><a class="label_inner" href="#menu-share">分享接口</a></li>
+      </ul>
+    </div>
+    <div class="lbox_close wxapi_form">
+      <h3 id="menu-basic">基础接口</h3>
+      <span class="desc">判断当前客户端是否支持指定JS接口</span>
+      <button class="btn btn_primary" id="checkJsApi">checkJsApi</button>
+      <h3 id="menu-share">分享接口</h3>
+      <span class="desc">获取“分享到朋友圈”按钮点击状态及自定义分享内容接口</span>
+      <button class="btn btn_primary" id="onMenuShareTimeline">onMenuShareTimeline</button>
+      <span class="desc">获取“分享给朋友”按钮点击状态及自定义分享内容接口</span>
+      <button class="btn btn_primary" id="onMenuShareAppMessage">onMenuShareAppMessage</button>
+      <span class="desc">获取“分享到QQ”按钮点击状态及自定义分享内容接口</span>
+      <button class="btn btn_primary" id="onMenuShareQQ">onMenuShareQQ</button>
+      <span class="desc">获取“分享到腾讯微博”按钮点击状态及自定义分享内容接口</span>
+      <button class="btn btn_primary" id="onMenuShareWeibo">onMenuShareWeibo</button>
+      <span class="desc">获取“分享到QZone”按钮点击状态及自定义分享内容接口</span>
+      <button class="btn btn_primary" id="onMenuShareQZone">onMenuShareQZone</button>
+    </div>
+  </div>
+</body>
+<script src="js/jweixin-1.0.0.js"></script>
+<script>
+  /*
+   * 注意：
+   * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+   * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+   * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+   *
+   * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+   * 邮箱地址：weixin-open@qq.com
+   * 邮件主题：【微信JS-SDK反馈】具体问题
+   * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+   */
+  wx.config({
+      debug: false,
+      appId: 'wxf8b4f85f3a794e77',
+      timestamp: 1486538500,
+      nonceStr: 'rlauWtLXQVLLmePd',
+      signature: 'c13cf58c08d17d7f404d191aace83e5f1d311bd2',
+      jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'onMenuShareQZone',
+      ]
+  });
+</script>
+<script type="text/javascript">
+        //完成wx.config，执行这里
+         wx.ready(function () {
+             //分享到朋友圈
+             wx.onMenuShareTimeline({
+                 title: '1111111', // 分享标题
+                 link:window.location.href,
+                 imgUrl: "{pigcms:$res['pic']}", // 分享图标
+                 success: function () {
+            // 分享成功执行此回调函数
+                    alert('success');
+                 },
+                 cancel: function () {
+                    alert('cancel');
+                 }
+             });
+
+             //分享给朋友
+             wx.onMenuShareAppMessage({
+                 title: '22222', // 分享标题
+                 desc: '22222',
+                 link:window.location.href,
+                 imgUrl: "{pigcms:$res['pic']}", // 分享图标
+                 trigger: function (res) {
+                     // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                 },
+                 success: function (res) {
+             // 分享成功执行此回调函数
+                     alert('已分享');
+                 },
+                 cancel: function (res) {
+                     alert('已取消');
+                 },
+                 fail: function (res) {
+                     alert(JSON.stringify(res));
+                 }
+             });
+         });
+
+</script>
 <script src="js/zepto.min.js"></script>
 <script src="js/demo.js"> </script>
-<!--MOB SHARE END-->
-<script>
-    wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-        appId: 'wx159f0dbc19a9d3a4', // 必填，公众号的唯一标识
-        timestamp: 1486538500, // 必填，生成签名的时间戳
-        nonceStr: 'rlauWtLXQVLLmePd', // 必填，生成签名的随机串
-        signature: 'c13cf58c08d17d7f404d191aace83e5f1d311bd2',// 必填，签名，见附录1
-        jsApiList: [
-          'onMenuShareTimeline',
-          'onMenuShareAppMessage',
-          'onMenuShareQQ',
-          'onMenuShareWeibo',
-          'onMenuShareQZone',
-          'scanQRCode',
-        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-    });
-</script>
-<!--MOB SHARE END-->
-</body>
 </html>
